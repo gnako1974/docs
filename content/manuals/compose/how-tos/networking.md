@@ -8,8 +8,6 @@ aliases:
   - /compose/networking/
 ---
 
-{{% include "compose-eol.md" %}}
-
 By default Compose sets up a single
 [network](/reference/cli/docker/network/create.md) for your app. Each
 container for a service joins the default network and is both reachable by
@@ -31,7 +29,7 @@ services:
     ports:
       - "8000:8000"
   db:
-    image: postgres
+    image: postgres:18
     ports:
       - "8001:5432"
 ```
@@ -80,7 +78,7 @@ services:
     links:
       - "db:database"
   db:
-    image: postgres
+    image: postgres:18
 ```
 
 See the [links reference](/reference/compose-file/services.md#links) for more information.
@@ -116,7 +114,7 @@ services:
       - frontend
       - backend
   db:
-    image: postgres
+    image: postgres:18
     networks:
       - backend
 
@@ -155,7 +153,7 @@ services:
     ports:
       - "8000:8000"
   db:
-    image: postgres
+    image: postgres:18
 
 networks:
   default:
